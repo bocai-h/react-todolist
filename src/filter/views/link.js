@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {setFilter} from '../actions.js';
 
 const Link = ({active, children, onClick}) => {
+	console.log(children, children === undefined )
 	if(active){
         return <b className="filter selected">{children}</b>
 	}else{
@@ -36,4 +37,3 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Link);
-

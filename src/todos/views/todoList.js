@@ -5,11 +5,12 @@ import { toggleTodo, removeTodo } from '../actions.js';
 import { FilterTypes }  from '../../constants.js';
 
 const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
-	return (
+	console.log(todos);
+  return (
       <ul className='todo-list'>
       {
         todos.map((item) =>(
-        	 <TodoItem 
+        	 <TodoItem
             key = { item.id }
             text = { item.text }
             completed = { item.completed }
@@ -17,7 +18,7 @@ const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
             onRemove = {() => onRemoveTodo(item.id)}
         	 />
          ))
-    
+
       }
       </ul>
 	);
@@ -28,6 +29,7 @@ TodoList.propTypes = {
 }
 
 const selectVisibleTodos = (todos, filter) => {
+	// console.log('selectVisibleTodos', todos, filter)
   switch (filter) {
     case FilterTypes.ALL:
       return todos;
@@ -42,7 +44,7 @@ const selectVisibleTodos = (todos, filter) => {
 
 const mapStateToProps = (state) => {
 	return {
-       todos: selectVisibleTodos(state.props, state.filter)
+       todos: selectVisibleTodos(state.todos, state.filter)
 	};
 };
 

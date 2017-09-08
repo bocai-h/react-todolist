@@ -7,8 +7,8 @@ export default (state = [], action) => {
 			 {
 			 	id: action.id,
 			 	text: action.text,
-			 	completed: false 
- 
+			 	completed: false
+
 			 },
 			 ...state
 			]
@@ -28,7 +28,7 @@ export default (state = [], action) => {
 			})
 		}
 		default: {
-			return false;
+			return state;
 		}
 	}
 }
